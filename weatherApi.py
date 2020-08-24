@@ -1,8 +1,10 @@
+import os
 import requests
 from pprint import pprint
 
 city = input("Enter city :")
-url = 'https://samples.openweathermap.org/data/2.5/weather?q={}&appid=070870a3f63e0378bdd30bd70f20bce5'.format(city)
+APP_ID = os.environ.get("APPID")
+url = 'https://samples.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(city,APP_ID)
 
 res = requests.get(url)     # request data from url thr request obj
 data = res.json()           # store json data in py dictonary
